@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pytdx-mcp"
+version = "0.1.0"
+description = "基于pytdx的MCP服务器，用于获取实时A股行情数据"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Zhao Hongshuo", email = "hasson827624@gmail.com" }
+]
+keywords = ["mcp", "pytdx", "stock", "a-stock", "realtime"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "pytdx>=1.72",
+    "mcp>=1.0.0",
+    "fastmcp>=0.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+]
+
+[project.scripts]
+pytdx-mcp = "pytdx_mcp:main"
+
+[project.urls]
+Homepage = "https://github.com/hasson827/pytdx-mcp"
+Repository = "https://github.com/hasson827/pytdx-mcp"
+Issues = "https://github.com/hasson827/pytdx-mcp/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pytdx_mcp"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
